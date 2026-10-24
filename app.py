@@ -9,7 +9,7 @@ st.title("🤖 AI Chatbot")
 # Azure OpenAI credentials from environment variables
 AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
-DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4-mini")
+AZURE_OPENAI_DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
 
 if not AZURE_OPENAI_API_KEY or not AZURE_OPENAI_ENDPOINT:
   st.warning(
@@ -41,7 +41,7 @@ else:
     with st.chat_message("assistant"):
       try:
         response = client.chat.completions.create(
-            model=DEPLOYMENT_NAME,
+            model=AZURE_OPENAI_DEPLOYMENT_NAME,
             messages=[
                 {"role": m["role"], "content": m["content"]}
                 for m in st.session_state.messages
