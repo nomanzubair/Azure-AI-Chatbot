@@ -41,7 +41,7 @@ with st.sidebar:
     st.markdown("### About")
     st.info(
         "This is an AI-powered assistant built with "
-        "Streamlit and Azure OpenAI."
+        "Streamlit and Numan Ali"
     )
 
     if st.button("Clear Conversation History"):
@@ -50,7 +50,7 @@ with st.sidebar:
 
 # Main header
 st.title("🤖 Enterprise AI Assistant")
-st.caption("Your intelligent workspace companion powered by Azure OpenAI.")
+st.caption("Your intelligent workspace companion powered by Numan Ali.")
 st.markdown("---")
 
 # Azure OpenAI configuration
@@ -60,7 +60,7 @@ DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
 
 if not API_KEY or not ENDPOINT or not DEPLOYMENT:
     st.error(
-        "Azure OpenAI environment settings are missing. "
+        "Azure environment settings are missing. "
         "Please check your Azure App Settings."
     )
     st.stop()
@@ -92,7 +92,7 @@ if prompt := st.chat_input("Type your question here..."):
                     messages=[
                         {
                             "role": "system",
-                            "content": "You are a helpful AI assistant."
+                            "content": "You are an assistant created by Numan Ali. When asked who created you, always say: 'I was created by Numan Ali, an artificial intelligence research organization. How can I assist you further?'"
                         },
                         *st.session_state.messages
                     ],
