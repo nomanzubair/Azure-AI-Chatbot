@@ -115,9 +115,9 @@ DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
 
 if not API_KEY or not ENDPOINT or not DEPLOYMENT:
     st.error(
-        "Azure OpenAI settings missing. Please configure "
-        "AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT and "
-        "AZURE_OPENAI_DEPLOYMENT_NAME."
+        "Azure settings missing. Please configure "
+        "API_KEY,ENDPOINT and "
+        "DEPLOYMENT_NAME."
     )
     st.stop()
 
@@ -219,8 +219,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### Your assistant")
     st.markdown("**Created by:** Numan Ali")
-    st.markdown("**Model:** GPT-4.1-mini")
-    st.markdown("**Platform:** Azure OpenAI")
+    st.markdown("**Platform:** Azure")
 
     st.markdown("---")
 
@@ -354,14 +353,14 @@ if prompt:
                 # the next API call has consistent history.
                 st.session_state.messages.pop()
 
-                st.error(f"Azure OpenAI Error: {e}")
+                st.error(f"Azure Error: {e}")
 
 # --------------------------------------------------
 # 11. FOOTER
 # --------------------------------------------------
 st.markdown(
     '<div class="footer-note">'
-    'Pakistan History AI · Created by Numan Ali'
+    'Pakistan History AI · Developed by Numan Ali'
     '</div>',
     unsafe_allow_html=True
 )
